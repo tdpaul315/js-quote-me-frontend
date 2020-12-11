@@ -3,8 +3,11 @@
 
 document.addEventListener("DOMContentLoaded", function(){
 API.loadQuotes()
-textToSpeech()
-API.loadFormListener
+API.loadFormListener()
 })
+
+
+
+
 
 

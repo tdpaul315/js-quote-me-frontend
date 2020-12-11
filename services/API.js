@@ -2,6 +2,8 @@
 
 class API {
 
+
+
     static loadQuotes(){
         fetch("http://localhost:3000/quotes")
         .then(response => response.json())
@@ -13,38 +15,49 @@ class API {
         })
     }
         
-    
-
     static loadFormListener(){
-        const quoteForm = document.getElementById("quote-form")
+            const quoteForm = document.getElementById("quote-form")
+        
+            quoteForm.addEventListener("submit", function(e) {
+                e.preventDefault()
+                const quoteData = formInfo(e)
+                fetch("http://localhost:3000/quotes", {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(quoteData) 
+                }) 
+                .then(resp => resp.json())
+                .then(data => {
+                    const{id, text, author, year, likes} = data
+                    new Quote(id, text, author, year, likes)
+                    clearForm() 
+                })
+            })
     
-        quoteForm.addEventListener("submit", function(e) {
-            e.preventDefault()
-            const quoteData = formInfo(e)
-            const htmlQuote = quoteHtml(quoteData)
-            attachQuote(htmlQuote)
-            clearForm()
-        })
-    }
     
-     formInfo(e){
+        
+    function formInfo(e){
         return {
             text: e.target.querySelector('#text-box').value, 
             author: e.target.querySelector('#author').value,
             year: e.target.querySelector('#year').value, 
         }
-     }
+    }
+     
     
-    
-     attachQuote(quote){
+    function attachQuote(quote){
         document.querySelector('#quote-spot').innerHTML += quote
-     }
+    }
     
-     clearForm(){
+    function clearForm(){
         document.querySelector('#text-box').value = "" 
         document.querySelector('#author').value = ""
         document.querySelector('#year').value = ""
-     }
+    }
+  }
+    
 }
     
  

@@ -25,4 +25,13 @@
   
   - JS models and constructors
   - forms and fetches
+
+
+  **ISSUE**
+  - how to access a function from another JS file (data not defined error RE: quoteHTML())
+  - I need my text to speech function to work on each card 
+  - add event listener to comment and like buttons 
+  - comment button will open a comment box with submit comment button 
+  - like button will increase likes for existing quotes 
+  - add delete fetch to delete quote
  
