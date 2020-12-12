@@ -47,10 +47,6 @@ class API {
     }
      
     
-    function attachQuote(quote){
-        document.querySelector('#quote-spot').innerHTML += quote
-    }
-    
     function clearForm(){
         document.querySelector('#text-box').value = "" 
         document.querySelector('#author').value = ""

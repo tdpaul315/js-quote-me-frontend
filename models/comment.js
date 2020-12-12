@@ -7,4 +7,6 @@ class Comment{
         this.quote_id = quote_id
     }
 
+    
+
 }   

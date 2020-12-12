@@ -18,13 +18,18 @@ class Quote {
             <ul class="w3-ul w3-white">
               <li>
                 <span class="w3-large" id="speech-text${this.id}">"${this.text}"</span><br>
-                <span>-${this.author}</span>
-                <p style="font-size:10px">${this.year}</p>
+                <span>-${this.author}</span>, <span style="font-size:10px">${this.year}</span><br><br>
+                <form>
+                  <textarea placeholder='Add Your Comment'></textarea><br>
+                  <div class="btn">
+                    <input class="fa fa-arrow-right" type="submit" value='Comment'>
+                    <button id='clear' class="fa fa-ban"> Cancel</button>
+                  </div>
+                </form><br>
                 <button class="fa fa-thumbs-o-up"> Like</button>
-                <button class="fa fa-arrow-right"> Comment</button>
                 <button class="fa fa-volume-up" id="play-me-${this.id}"> Listen to Me</button>
                 <button class="fa fa-trash delete">Delete</button>
-                <p>${this.likes} like(s)</p>    
+                <p>${this.likes} like(s)</p>  
               </li>
             </ul>
           </div>
@@ -43,10 +48,9 @@ class Quote {
         quoteCard.addEventListener('click', e => {
           if (e.target.className.includes('delete')) this.deleteQuote(e)
           if (e.target.className.includes('fa fa-volume-up'))  this.textToSpeech()
-          //if (e.target.className.includes('fa fa-arrow-right') //add function to display quote.comments 
+          if (e.target.className.includes('fa fa-arrow-right'))  e.preventDefault(); console.log('comment')
+          
         })
-
-       
     }
 
     
@@ -72,7 +76,6 @@ class Quote {
   }
 
 
-
   textToSpeech() {
     if ('speechSynthesis' in window) {
 
@@ -83,9 +86,7 @@ class Quote {
 
 
         playEle.addEventListener('click', this.onClickPlay(synth,flag));
-
       }  
-      
     }
     
    onClickPlay(synth, flag) {
@@ -111,7 +112,9 @@ class Quote {
     }
 }
 
-  }
+
+
+}
 
 
 

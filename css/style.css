@@ -1,0 +1,10 @@
+textarea {
+    height: 30px; 
+    width: 100%; 
+    border-color: black;
+    border-bottom: 1px solid rgb(3, 3, 3); 
+    background-color: transparent;
+    margin-bottom: 10px;
+    resize: none; 
+    outline: none;
+}
