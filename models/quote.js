@@ -17,13 +17,12 @@ class Quote {
         <div class="w3-card w3-margin">
             <ul class="w3-ul w3-white">
               <li>
-                <span class="w3-large" id="speech-text">"${this.text}"</span><br>
+                <span class="w3-large" id="speech-text${this.id}">"${this.text}"</span><br>
                 <span>-${this.author}</span>
                 <p style="font-size:10px">${this.year}</p>
                 <button class="fa fa-thumbs-o-up"> Like</button>
                 <button class="fa fa-arrow-right"> Comment</button>
                 <button class="fa fa-volume-up" id="play-me-${this.id}"> Listen to Me</button>
-                <button class="fa fa-volume-off" id="stop-me-${this.id}"> Turn Me Off</button>
                 <button class="fa fa-trash delete">Delete</button>
                 <p>${this.likes} like(s)</p>    
               </li>
@@ -43,22 +42,24 @@ class Quote {
         quoteContainer.appendChild(quoteCard)
         quoteCard.addEventListener('click', e => {
           if (e.target.className.includes('delete')) this.deleteQuote(e)
+          if (e.target.className.includes('fa fa-volume-up'))  this.textToSpeech()
+          //if (e.target.className.includes('fa fa-arrow-right') //add function to display quote.comments 
         })
 
-        //this.textToSpeech()
+       
     }
 
     
 
-    //quoteComments(){
-     // fetch("http://localhost:3000//quotes/id/comments/id")
-     //   .then(response => response.json())
-     //   .then(comments => {
-     //       comments.forEach(comment => {
-     //           const{id, commenter, content, quote_id} = comment
-     //           new Comment(id, commenter, content, quote_id)
-     //       })
-  //   })
+   //quoteComments(){
+      //fetch("http://localhost:3000//quotes/id/comments/id")
+       //.then(response => response.json())
+        //.then(comments => {
+           // comments.forEach(comment => {
+               // const{id, commenter, content, quote_id} = comment
+                //new Comment(id, commenter, content, quote_id)
+           // })
+  // })
 
   deleteQuote(e){
     const id = document.getElementById(`${this.id}`)
@@ -90,7 +91,7 @@ class Quote {
    onClickPlay(synth, flag) {
       if(!flag){
           flag = true;
-          const utterance = new SpeechSynthesisUtterance(document.querySelector('#speech-text').textContent);
+          const utterance = new SpeechSynthesisUtterance(document.querySelector(`#speech-text${this.id}`).textContent);
           utterance.voice = synth.getVoices()[0];
           utterance.onend = function(){
               flag = false;
