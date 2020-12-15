@@ -1,5 +1,5 @@
-//Think OOJS - how do you create objects (initialization, classes, instances....SOUNDS LIKE RUBBBBBY)
 
+// Builds Quote Object 
 class Quote {
     constructor(id, text, author, year, likes) {
         this.id = id;
@@ -8,18 +8,19 @@ class Quote {
         this.year = year; 
         this.likes = likes; 
         this.displayQuote()
+        this.loadComments()
         
     }
 
-
+  //defines html that is rendered after a quote is created and appended to the page 
     quoteHtml(){
     return `
         <div class="w3-card w3-margin">
             <ul class="w3-ul w3-white">
               <li>
-                <span class="w3-large" id="speech-text${this.id}">"${this.text}"</span><br>
+                <span class="w3-large" id="speech-text-${this.id}">"${this.text}"</span><br>
                 <span>-${this.author}</span>, <span style="font-size:10px">${this.year}</span><br><br>
-                <form>
+                <form id="comment-form">
                   <textarea placeholder='Add Your Comment'></textarea><br>
                   <div class="btn">
                     <input class="fa fa-arrow-right" type="submit" value='Comment'>
@@ -30,16 +31,18 @@ class Quote {
                 <button class="fa fa-volume-up" id="play-me-${this.id}"> Listen to Me</button>
                 <button class="fa fa-trash delete">Delete</button>
                 <p>${this.likes} like(s)</p>  
-                <p style="text-align:center" id="comment-spot">Comments</p>
+                <p style="text-align:center">Comments</p>
+                <div id="comment-container-${this.id}"></div>
+                </div>
               </li>
             </ul>
           </div>
           <hr> 
         `
     }
-
+    //grabs location of where to append in the DOM and appends new quotes 
     displayQuote(){
-        const quoteContainer =  document.querySelector('#quote-spot');
+        const quoteContainer =  document.querySelector('#quote-spot')
         const quoteCard = document.createElement('div')
         quoteCard.dataset.id = this.id 
         quoteCard.id = this.id
@@ -52,11 +55,24 @@ class Quote {
           if (e.target.className === 'fa fa-arrow-right')  e.preventDefault(); console.log('commented');
           if (e.target.className === 'fa fa-thumbs-o-up') console.log('you liked me');
         })
+        
     }
 
-    
-    
-  deleteQuote(){
+    loadComments(){
+      fetch(`http://localhost:3000/quotes/${this.id}/comments`)
+      .then(response => response.json())
+      .then(comments => {
+              comments.forEach(comment => {
+                  const{id, commenter, content, quote_id} = comment 
+                  new Comment(id, commenter, content, quote_id)
+          })
+      })
+      
+  }
+
+
+  
+    deleteQuote(){
     const id = document.getElementById(`${this.id}`)
     fetch(`http://localhost:3000/quotes/${this.id}`,{
       method: 'DELETE'
@@ -82,7 +98,7 @@ class Quote {
    onClickPlay(synth, flag) {
       if(!flag){
           flag = true;
-          const utterance = new SpeechSynthesisUtterance(document.querySelector(`#speech-text${this.id}`).textContent);
+          const utterance = new SpeechSynthesisUtterance(document.querySelector(`#speech-text-${this.id}`).textContent);
           utterance.voice = synth.getVoices()[0];
           utterance.onend = function(){
               flag = false;

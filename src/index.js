@@ -4,8 +4,10 @@
 document.addEventListener("DOMContentLoaded", function(){
 API.loadQuotes()
 API.loadFormListener()
-Comment.loadComments()
+
 })
+
+
 
 
 
