@@ -14,7 +14,7 @@ class Comment {
     commentHtml() {
        return ` 
         <div class="w3-card w3-margin">
-            <ul class="w3-ul w3-white">
+            <ul class="w3-ul w3-teal">
             <span class="w3-large">"${this.content}"</span><br>
                 <span>-${this.commenter}</span>
             `

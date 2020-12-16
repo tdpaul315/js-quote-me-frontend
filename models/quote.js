@@ -19,7 +19,7 @@ class Quote {
             <ul class="w3-ul w3-white">
               <li>
                 <span class="w3-large" id="speech-text-${this.id}">"${this.text}"</span><br>
-                <span>-${this.author}</span>, <span style="font-size:10px">${this.year}</span><br><br>
+                <span>-${this.author}</span>, <span style="font-size:10px;color:MediumSeaGreen">${this.year}</span><br><br>
                 <form id="comment-form">
                   <textarea placeholder='Add Your Comment'></textarea><br>
                   <div class="btn">
@@ -31,7 +31,6 @@ class Quote {
                 <button class="fa fa-volume-up" id="play-me-${this.id}"> Listen to Me</button>
                 <button class="fa fa-trash delete">Delete</button>
                 <p>${this.likes} like(s)</p>  
-                <p style="text-align:center">Comments</p>
                 <div id="comment-container-${this.id}"></div>
                 </div>
               </li>
