@@ -26,8 +26,6 @@ class Comment {
         commentCard.id = this.id
         commentCard.innerHTML += this.commentHtml()
         commentContainer.appendChild(commentCard)
-        //if commentCard.id == quoteCard.id 
-            //this.displayComment()
     }
 
        

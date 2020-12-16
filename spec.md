@@ -1,7 +1,7 @@
 **How I want my application to work....**
 
     User navigates to page and can see all quotes displayed at the bottom of the screen   
-    User also can create their own quote || comment on an existing quote || listen to quote || edit/delete quote 
+    User also can create their own quote || comment on an existing quote || listen to quote || delete quote 
 
 
 
@@ -11,27 +11,14 @@
   2) The retrieved data will be need to be appended to the DOM  -- find the location where the quotes/comments will go and append them 
 
 
-  3) User can create a new quote(think OOJS),  build a function that will grab form data from the user's input and pessimistically render the new object to ensure that whether or not the data is persisted to the database, that you still have access to the object (ie:errors).Then append to DOM via POST fetch --FETCH #2 (this will also include a 'submit' event)
+  3) User can create a new quote => build a function that will grab form data from the user's input and pessimistically render the new object to ensure that whether or not the data is persisted to the database, that you still have access to the object (ie:errors).Then append to DOM via POST fetch --FETCH #2 (this will also include a 'submit' event)
 
-  4) Add edit/delete option and perform CRUD function via PATCH/DELETE actions --FETCH #3
+  4) Add delete option and perform CRUD function via DELETE action --FETCH #3
 
-  5) Add events ('click', once quote play button is clicked user will be able listen to it (via SpeechSynthesis), 'button' or 'click'  event to open a comment box under specified quote and post a comment via post button 
+  5) Add events ('click', once quote play button is clicked user will be able listen to it (via SpeechSynthesis) 
 
   6) Refactor if necessary, make everything pretty and make sure it works!
 
 
 
-  **STEPS TO COMPLETE FROM CORINNA"S SUGGESTION**
-  
-  - JS models and constructors
-  - forms and fetches
 
-
-  **ISSUE**
-  - how to access a function from another JS file (data not defined error RE: quoteHTML())
-  - I need my text to speech function to work on each card 
-  - add event listener to comment and like buttons 
-  - comment button will open a comment box with submit comment button 
-  - like button will increase likes for existing quotes 
-  - add delete fetch to delete quote
- 

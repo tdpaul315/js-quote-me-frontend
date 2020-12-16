@@ -1,5 +1,5 @@
 
-// Builds Quote Object 
+
 class Quote {
     constructor(id, text, author, year, likes) {
         this.id = id;
@@ -12,7 +12,7 @@ class Quote {
         
     }
 
-  //defines html that is rendered after a quote is created and appended to the page 
+  
     quoteHtml(){
     return `
         <div class="w3-card w3-margin">
@@ -39,7 +39,7 @@ class Quote {
           <hr> 
         `
     }
-    //grabs location of where to append in the DOM and appends new quotes 
+    
     displayQuote(){
         const quoteContainer =  document.querySelector('#quote-spot')
         const quoteCard = document.createElement('div')
@@ -51,8 +51,8 @@ class Quote {
         quoteCard.addEventListener('click', e => {
           if (e.target.className.includes('delete')) this.deleteQuote()
           if (e.target.className === 'fa fa-volume-up')  this.textToSpeech();
-          if (e.target.className === 'fa fa-arrow-right')  e.preventDefault(); console.log('commented');
-          if (e.target.className === 'fa fa-thumbs-o-up') console.log('you liked me');
+          if (e.target.className === 'fa fa-arrow-right')  e.preventDefault(); 
+          if (e.target.className === 'fa fa-thumbs-o-up') ;
         })
         
     }
@@ -104,40 +104,11 @@ class Quote {
           };
           synth.speak(utterance);
       }
-      if(synth.paused) { /* unpause/resume narration */
+      if(synth.paused) { 
         synth.resume();
     }
 
   }
-
-  
-  
-  //   trackScroll() {
-  //     let scrolled = window.pageYOffset;
-  //     let coords = document.documentElement.clientHeight;
-  //     const goTopBtn = document.querySelector('.back-to-top');
-  
-  //     if (scrolled > coords) {
-  //       goTopBtn.classList.add('back_to_top-show');
-  //     }
-  //     if (scrolled < coords) {
-  //       goTopBtn.classList.remove('back_to_top-show');
-  //     }
-  //   }
-  
-  //   backToTop() {
-  //     if (window.pageYOffset > 0) {
-  //       window.scrollBy(0, -80);
-  //       setTimeout(backToTop, 0);
-  //     }
-  
-  //   this.scrollMe();
-  //   }
-
-  // scrollMe() {
-  //   window.addEventListener('scroll', trackScroll()); 
-  //   goTopBtn.addEventListener('click', backToTop())
-  // }
 }
 
 
