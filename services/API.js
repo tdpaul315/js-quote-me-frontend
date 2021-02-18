@@ -35,27 +35,25 @@ class API {
                     new Quote(id, text, author, year, likes)
                     clearForm() 
                 })
-            })
+            });
 
-
-    
     
         
-    function formInfo(e){
+     function formInfo(e){
         return {
             text: e.target.querySelector('#text-box').value, 
             author: e.target.querySelector('#author').value,
             year: e.target.querySelector('#year').value, 
         }
-    }
+       }
      
     
-    function clearForm(){
+     function clearForm(){
         document.querySelector('#text-box').value = "" 
         document.querySelector('#author').value = ""
         document.querySelector('#year').value = ""
+       }
     }
-  }
 
 }
 

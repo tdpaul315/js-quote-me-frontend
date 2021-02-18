@@ -1,0 +1,22 @@
+{
+  "name": "quote-me-frontend",
+  "version": "1.0.0",
+  "description": "Link to backend [here](https://github.com/tdpaul315/js-quote-me-backend)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdpaul315/js-quote-me-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tdpaul315/js-quote-me-frontend/issues"
+  },
+  "homepage": "https://github.com/tdpaul315/js-quote-me-frontend#readme",
+  "devDependencies": {
+    "cypress": "^6.5.0"
+  }
+}

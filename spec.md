@@ -20,5 +20,14 @@
   6) Refactor if necessary, make everything pretty and make sure it works!
 
 
+  Complete the steps to add comment functionality....
+
+  1. Grab 'comment' button
+  2. Add event listener on 'comment' button 
+  3. Create a POST Comment function to pass in to event listener - this function will include a POST request to the back end to persist the data. In this function grab the comment value 
+  
+
+
+
 
 

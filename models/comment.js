@@ -8,7 +8,6 @@ class Comment {
         this.displayComment()
         
     }
-       
     
 
     commentHtml() {
@@ -23,15 +22,12 @@ class Comment {
     displayComment() {
         let commentContainer = document.getElementById(`comment-container-${this.quote_id}`)
         let commentCard = document.createElement('li')
+        commentCard.dataset.id = this.id 
         commentCard.id = this.id
+        commentCard.classList.add = "comment-card"
         commentCard.innerHTML += this.commentHtml()
         commentContainer.appendChild(commentCard)
     }
-
-       
-
-    
-
-    
+   
 
 }   
