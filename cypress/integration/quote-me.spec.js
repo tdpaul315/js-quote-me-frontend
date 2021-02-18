@@ -29,15 +29,15 @@ describe('quote actions', () => {
     })
 
      it('delete selected quote', () => {
-       cy.get('#delete-me-60').click()
-       cy.get('#delete-me-61').click()
+       cy.get('#delete-me-47').click()
+       cy.get('#delete-me-48').click()
 
-       cy.get('#speech-text-60').should('not.exist')
-       cy.get('#speech-text-61').should('not.exist')
+       cy.get('#speech-text-47').should('not.exist')
+       cy.get('#speech-text-48').should('not.exist')
     })
 
    it('should validate number of quotes', () => {
-    cy.get('#quote-spot li').should('have.length.above', 10)
+    cy.get('#quote-spot li').should('have.length.above', 15)
    })
 })
 
