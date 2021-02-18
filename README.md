@@ -9,9 +9,9 @@ PROGRAMMING LANGUAGE: Built using Rails v6.0.3.4 on the backend and Vanilla JS o
 
 PREREQUISITES:
 
-Fork and clone this repository from GitHub.
+Fork and clone this repository and the backend repo from GitHub. Link to backend [here](https://github.com/tdpaul315/js-quote-me-backend)
 
-Run rails s or rails server in the command line for the backend repo. This will start the server locally so the application data can be accessible. Link to backend [here](https://github.com/tdpaul315/js-quote-me-backend)
+Run rails s or rails server in the command line for the backend repo. This will start the server locally so the application data can be accessible. 
 
 On the frontend type npx reload-b to run the node server and it will automatically navigate to localhost:8080.  
 
